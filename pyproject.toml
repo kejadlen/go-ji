@@ -4,8 +4,9 @@ name = "go-ji"
 version = "0.1.0"
 dependencies = [
     "alembic",
-    "Flask",
-    "SQLAlchemy",
+    "flask",
+    "gunicorn",
+    "sqlalchemy",
 ]
 
 [project.optional-dependencies]

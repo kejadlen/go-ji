@@ -26,6 +26,8 @@ coverage==7.4.1
     # via go-ji (pyproject.toml)
 flask==3.0.2
     # via go-ji (pyproject.toml)
+gunicorn==21.2.0
+    # via go-ji (pyproject.toml)
 iniconfig==2.0.0
     # via pytest
 itsdangerous==2.1.2
@@ -48,6 +50,7 @@ nodeenv==1.8.0
 packaging==23.2
     # via
     #   build
+    #   gunicorn
     #   pytest
     #   ruff-lsp
 pip-tools==7.3.0
