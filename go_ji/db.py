@@ -35,6 +35,7 @@ Base.metadata = MetaData(naming_convention=convention)
 class User(Base):
     __tablename__ = "users"
     id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(Text(), nullable=False)
     login: Mapped[str] = mapped_column(Text(), nullable=False, unique=True)
 
     created_at: Mapped[datetime] = mapped_column(nullable=False, default=func.now())

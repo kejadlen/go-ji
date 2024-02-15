@@ -16,17 +16,19 @@ def require_user() -> None:
     if "user" in g:
         return
 
-    if login := request.headers.get("Tailscale-User-Login"):
-        try:
-            user = db_session.scalars(select(User).where(User.login == login)).one()
-        except sqlalchemy.exc.NoResultFound:
-            user = User(login=login)
-            db_session.add(user)
-            db_session.commit()
-        g.user = user
-        return
+    if not (login := request.headers.get("Tailscale-User-Login")):
+        abort(403)
 
-    abort(403)
+    name = request.headers["Tailscale-User-Name"]
+    try:
+        user = db_session.scalars(select(User).where(User.login == login)).one()
+        user.name = name
+    except sqlalchemy.exc.NoResultFound:
+        user = User(login=login, name=name)
+    db_session.add(user)
+    db_session.commit()
+
+    g.user = user
 
 
 @app.teardown_appcontext
