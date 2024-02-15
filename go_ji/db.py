@@ -45,6 +45,7 @@ class Short(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     slug: Mapped[str] = mapped_column(Text(), nullable=False, unique=True)
     longs: Mapped[List["Long"]] = relationship(back_populates="short")
+    clicks: Mapped[int] = mapped_column(default=0, nullable=False)
 
     created_at: Mapped[datetime] = mapped_column(nullable=False, default=func.now())
 
