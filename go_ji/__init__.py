@@ -47,7 +47,13 @@ def create_link():
     if not VALID_SLUG.match(slug):
         abort(400)
 
-    short = Short(slug=slug)
+    try:
+        short = db_session.scalars(select(Short).where(Short.slug == slug)).one()
+    except sqlalchemy.exc.NoResultFound:
+        short = Short(slug=slug)
+        db_session.add(short)
+        db_session.commit()
+
     long = Long(url=url, short=short, created_by=g.user)
     db_session.add_all([short, long])
     db_session.commit()
@@ -58,8 +64,14 @@ def create_link():
 @app.route("/<slug>")
 def go(slug: str):
     long = db_session.scalars(
-        select(Long).join(Long.short).where(Short.slug == slug)
-    ).one()
+        select(Long)
+        .join(Long.short)
+        .where(Short.slug == slug)
+        .order_by(Long.created_at.desc())
+    ).first()
+
+    if long is None:
+        abort(404)
 
     long.short.clicks += 1
     db_session.add(long.short)
