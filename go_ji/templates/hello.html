@@ -8,10 +8,10 @@
   <body>
     <p>Hello, {{ name }}!</p>
     <form action="{{ url_for("create_link") }}" method="POST">
-      <label for="short">short:</label>
-      <input type="text" id="short" name="short" />
-      <label for="long">long:</label>
-      <input type="text" id="long" name="long" />
+      <label for="slug">slug</label>
+      <input type="text" id="slug" name="slug" />
+      <label for="url">url</label>
+      <input type="text" id="url" name="url" />
       <input type="submit" value="Create Link">
     </form>
   </body>

@@ -1,8 +1,12 @@
+import re
+
 import sqlalchemy
 from flask import Flask, abort, g, redirect, render_template, request, url_for
 from sqlalchemy import select
 
-from go_ji.db import User, db_session
+from go_ji.db import Long, Short, User, db_session
+
+VALID_SLUG = re.compile(r"^\w[-\w]*$", re.ASCII)
 
 app = Flask(__name__)
 
@@ -37,4 +41,15 @@ def index():
 
 @app.route("/links", methods=["POST"])
 def create_link():
+    slug = request.form["slug"]
+    url = request.form["url"]
+
+    if not VALID_SLUG.match(slug):
+        abort(400)
+
+    short = Short(slug=slug)
+    long = Long(url=url, short=short, created_by=g.user)
+    db_session.add_all([short, long])
+    db_session.commit()
+
     return redirect(url_for("index"))
