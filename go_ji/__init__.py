@@ -1,5 +1,5 @@
 import sqlalchemy
-from flask import Flask, abort, g, request
+from flask import Flask, abort, g, request, render_template
 from sqlalchemy import select
 
 from go_ji.db import User, db_session
@@ -32,4 +32,4 @@ def shutdown_session(exception=None):
 
 @app.route("/")
 def hello_world():
-    return f"<p>Hello, {g.user.login}!</p>"
+    return render_template('hello.html', name=g.user.login)
