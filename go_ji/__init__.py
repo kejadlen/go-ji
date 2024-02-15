@@ -53,3 +53,16 @@ def create_link():
     db_session.commit()
 
     return redirect(url_for("index"))
+
+
+@app.route("/<slug>")
+def go(slug: str):
+    long = db_session.scalars(
+        select(Long).join(Long.short).where(Short.slug == slug)
+    ).one()
+
+    long.short.clicks += 1
+    db_session.add(long.short)
+    db_session.commit()
+
+    return redirect(long.url)
