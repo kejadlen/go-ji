@@ -1,5 +1,5 @@
 import sqlalchemy
-from flask import Flask, abort, g, request, render_template
+from flask import Flask, abort, g, render_template, request
 from sqlalchemy import select
 
 from go_ji.db import User, db_session
