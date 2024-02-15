@@ -56,6 +56,9 @@ class Long(Base):
     short_id: Mapped[int] = mapped_column(ForeignKey("shorts.id"), nullable=False)
     short: Mapped["Short"] = relationship(back_populates="longs")
 
+    created_by_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    created_by: Mapped["User"] = relationship()
+
     created_at: Mapped[datetime] = mapped_column(nullable=False, default=func.now())
 
 
