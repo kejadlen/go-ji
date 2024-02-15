@@ -2,7 +2,7 @@ all: requirements.txt dev-requirements.txt
 
 .PHONY: dev
 dev:
-	flask --app go_ji run
+	fd ".*.py$$" | entr -r flask --app go_ji run
 
 .PHONY: upgrade-deps
 upgrade-deps:
