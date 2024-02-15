@@ -1,5 +1,5 @@
 import sqlalchemy
-from flask import Flask, abort, g, render_template, request
+from flask import Flask, abort, g, redirect, render_template, request, url_for
 from sqlalchemy import select
 
 from go_ji.db import User, db_session
@@ -31,5 +31,10 @@ def shutdown_session(exception=None):
 
 
 @app.route("/")
-def hello_world():
-    return render_template('hello.html', name=g.user.login)
+def index():
+    return render_template("hello.html", name=g.user.login)
+
+
+@app.route("/links", methods=["POST"])
+def create_link():
+    return redirect(url_for("index"))

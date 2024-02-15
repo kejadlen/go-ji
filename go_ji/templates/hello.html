@@ -1,1 +1,18 @@
-<p>Hello, {{ name }}!</p>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>go-ji</title>
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+    <p>Hello, {{ name }}!</p>
+    <form action="{{ url_for("create_link") }}" method="POST">
+      <label for="short">short:</label>
+      <input type="text" id="short" name="short" />
+      <label for="long">long:</label>
+      <input type="text" id="long" name="long" />
+      <input type="submit" value="Create Link">
+    </form>
+  </body>
+</html>
