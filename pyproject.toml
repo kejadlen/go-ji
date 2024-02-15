@@ -18,11 +18,12 @@ dev = [
     "ruff-lsp",
 ]
 
+[tool.setuptools]
+py-modules = []
+
 [tool.pip-tools]
-generate-hashes = true
-# silence warning that strip-extras will be the default in 8.0.0, at which
-# point this setting can be removed
-strip-extras = true
+strip-extras = true # silence warning that strip-extras will be the default in
+                    # 8.0.0, at which point this setting can be removed
 
 [tool.ruff]
 target-version = "py312"
