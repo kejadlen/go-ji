@@ -1,18 +1,15 @@
-import os
-
 import sqlalchemy
-from flask import Flask, abort, request, session
+from flask import Flask, abort, g, request
 from sqlalchemy import select
 
 from go_ji.db import User, db_session
 
 app = Flask(__name__)
-app.secret_key = os.environ["FLASK_SECRET_KEY"]
 
 
 @app.before_request
 def require_user() -> None:
-    if "user_id" in session:
+    if "user" in g:
         return
 
     if login := request.headers.get("Tailscale-User-Login"):
@@ -22,7 +19,7 @@ def require_user() -> None:
             user = User(login=login)
             db_session.add(user)
             db_session.commit()
-        session["user_id"] = user.id
+        g.user = user
         return
 
     abort(403)
@@ -35,4 +32,4 @@ def shutdown_session(exception=None):
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return f"<p>Hello, {g.user.login}!</p>"
