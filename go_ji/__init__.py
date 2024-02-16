@@ -2,7 +2,7 @@ import re
 from typing import Any
 
 import sqlalchemy
-from flask import Flask, abort, g, redirect, render_template, request, url_for
+from flask import Config, Flask, abort, g, redirect, render_template, request, url_for
 from sqlalchemy import select
 
 from go_ji.db import Long, Short, User
@@ -11,14 +11,14 @@ from go_ji.db import create_session as create_db_session
 VALID_SLUG = re.compile(r"^\w[-\w]*$", re.ASCII)
 
 
+config = Config("")
+config["DB_URL"] = "sqlite:///go-ji.db"
+config.from_prefixed_env("GO_JI")
+
+
 def create_app(config: dict[str, Any] = {}) -> Flask:
     app = Flask(__name__, instance_relative_config=True)
 
-    # defaults
-    app.config["DB_URL"] = "sqlite:///go-ji.db"
-
-    # overrides
-    app.config.from_prefixed_env("GO_JI")
     app.config.from_mapping(config)
 
     # set up db
