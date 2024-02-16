@@ -20,4 +20,4 @@ RUN mkdir -p /var/run/tailscale /var/cache/tailscale /var/lib/tailscale
 ENV GO_JI_DB_URL sqlite:////data/go-ji.db
 
 # Run on container startup.
-CMD ["/app/start.sh"]
+CMD ["/app/docker/start.sh"]
