@@ -22,7 +22,6 @@ def create_session(url: str, debug: bool = False):
         sessionmaker(autocommit=False, autoflush=False, bind=engine)
     )
     Base.query = db_session.query_property()
-    Base.metadata.create_all(bind=engine)
     return db_session
 
 

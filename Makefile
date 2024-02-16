@@ -16,6 +16,7 @@ docker:
 		--cap-add=NET_ADMIN \
 		--device=/dev/net/tun \
 		--name=go_ji \
+		-e=GO_JI_SENTRY_ENVIRONMENT=development \
 		-e=TAILSCALE_AUTHKEY=$$TAILSCALE_AUTHKEY \
 		go-ji
 
