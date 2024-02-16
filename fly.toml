@@ -2,6 +2,7 @@ app = 'go-ji'
 primary_region = 'sea'
 
 [build]
+  image = 'ghcr.io/kejadlen/go-ji:latest'
 
 [http_service]
   internal_port = 8000
@@ -15,3 +16,7 @@ primary_region = 'sea'
   cpu_kind = 'shared'
   cpus = 1
   memory_mb = 256
+
+[mounts]
+  source="go-ji"
+  destination="/home/nonroot"
