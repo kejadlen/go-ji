@@ -20,3 +20,6 @@ primary_region = "sea"
 [mounts]
   source = "go_ji"
   destination = "/data"
+
+[deploy]
+  release_command = "alembic upgrade head"
