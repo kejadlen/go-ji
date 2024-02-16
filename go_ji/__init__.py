@@ -1,6 +1,7 @@
 import re
 from typing import Any
 
+import sentry_sdk
 import sqlalchemy
 from flask import Config, Flask, abort, g, redirect, render_template, request, url_for
 from sqlalchemy import select
@@ -15,11 +16,24 @@ config = Config("")
 config["DB_URL"] = "sqlite:///go-ji.db"
 config.from_prefixed_env("GO_JI")
 
+sentry_sdk.init(
+    dsn=config["SENTRY_DSN"],
+    environment=config["SENTRY_ENVIRONMENT"],
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
 
-def create_app(config: dict[str, Any] = {}) -> Flask:
+
+def create_app(config_override: dict[str, Any] = {}) -> Flask:
     app = Flask(__name__, instance_relative_config=True)
 
     app.config.from_mapping(config)
+    app.config.from_mapping(config_override)
 
     # set up db
     db_session = create_db_session(app.config["DB_URL"])
@@ -90,5 +104,11 @@ def create_app(config: dict[str, Any] = {}) -> Flask:
         db_session.commit()
 
         return redirect(long.url)
+
+    # purely for testing Sentry
+    @app.route("/die")
+    def die():
+        1 / 0  # raises an error
+        return "<p>Hello, World!</p>"
 
     return app

@@ -4,6 +4,9 @@ primary_region = "sea"
 [build]
   image = "ghcr.io/kejadlen/go-ji:fly"
 
+[env]
+  GO_JI_SENTRY_ENVIRONMENT = "production"
+
 [http_service]
   internal_port = 8000
   force_https = true
