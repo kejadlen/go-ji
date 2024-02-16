@@ -13,14 +13,18 @@ from sqlalchemy.orm import (
 from sqlalchemy.schema import MetaData
 from sqlalchemy.sql import func
 
-engine = create_engine("sqlite:///go-ji.db")
-# engine = create_engine("sqlite:///:memory:")
-db_session = scoped_session(
-    sessionmaker(autocommit=False, autoflush=False, bind=engine)
-)
-
 Base = declarative_base()
-Base.query = db_session.query_property()
+
+
+def create_session(url: str, debug: bool = False):
+    engine = create_engine(url, echo=debug)
+    db_session = scoped_session(
+        sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    )
+    Base.query = db_session.query_property()
+    Base.metadata.create_all(bind=engine)
+    return db_session
+
 
 convention = {
     "ix": "ix_%(column_0_label)s",
@@ -62,7 +66,3 @@ class Long(Base):
     created_by: Mapped["User"] = relationship()
 
     created_at: Mapped[datetime] = mapped_column(nullable=False, default=func.now())
-
-
-def init_db():
-    Base.metadata.create_all(bind=engine)

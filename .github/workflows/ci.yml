@@ -16,4 +16,6 @@ jobs:
           pip install -r dev-requirements.txt
       - run: ruff --output-format=github .
       - run: alembic upgrade head && alembic check
+      - run: make test
+      - run: coverage report
 

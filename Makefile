@@ -3,7 +3,11 @@ all: requirements.txt dev-requirements.txt
 .PHONY: dev
 dev:
 	tailscale serve --bg 5000
-	fd ".*.(html|py)$$" | entr -r flask --app go_ji run
+	fd ".*.(html|py)$$" | entr -r flask --app go_ji run --debug
+
+.PHONY: test
+test:
+	coverage run -m pytest
 
 .PHONY: docker
 docker:

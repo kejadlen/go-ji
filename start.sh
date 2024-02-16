@@ -6,6 +6,6 @@
 trap '/app/tailscale logout' INT
 
 /app/tailscale serve --bg --http=80 8000
-gunicorn --daemon --bind 0.0.0.0:8000 go_ji:app
+gunicorn --daemon --bind 0.0.0.0:8000 go_ji:create_app
 
 wait "$!"
