@@ -16,6 +16,7 @@ if config.config_file_name is not None:
 from go_ji import create_app  # noqa: E402
 from go_ji.db import Base  # noqa: E402
 
+print(create_app().config["DB_URL"])
 config.set_main_option("sqlalchemy.url", create_app().config["DB_URL"])
 target_metadata = Base.metadata
 
