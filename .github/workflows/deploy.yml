@@ -21,8 +21,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          docker tag ${{ github.repository }}:$(git rev-parse --short HEAD) ${{ github.repository }}:fly
+          docker tag ${IMAGE}:$(git rev-parse --short HEAD) ${IMAGE}:fly
           docker push ${{ github.repository }}
+        env:
+          IMAGE: ghcr.io/${{ github.repository }}
 
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
