@@ -15,6 +15,7 @@ docker:
 	docker run \
 		--cap-add=NET_ADMIN \
 		--device=/dev/net/tun \
+		--name=go_ji \
 		-e=TAILSCALE_AUTHKEY=$$TAILSCALE_AUTHKEY \
 		go-ji
 
