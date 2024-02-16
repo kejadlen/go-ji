@@ -12,15 +12,15 @@ from go_ji.db import create_session as create_db_session
 VALID_SLUG = re.compile(r"^\w[-\w]*$", re.ASCII)
 
 
-config = Config("")
-config["DB_URL"] = "sqlite:///go-ji.db"
-config.from_prefixed_env("GO_JI")
+CONFIG = Config("")
+CONFIG["DB_URL"] = "sqlite:///go-ji.db"
+CONFIG.from_prefixed_env("GO_JI")
 
 
 def create_app(config_override: dict[str, Any] = {}) -> Flask:
     app = Flask(__name__, instance_relative_config=True)
 
-    app.config.from_mapping(config)
+    app.config.from_mapping(CONFIG)
     app.config.from_mapping(config_override)
 
     if "TESTING" not in app.config:
