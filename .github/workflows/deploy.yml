@@ -23,7 +23,7 @@ jobs:
       - run: |
           docker pull ${IMAGE}:$(git rev-parse --short HEAD)
           docker tag ${IMAGE}:$(git rev-parse --short HEAD) ${IMAGE}:fly
-          docker push ${{ github.repository }}:fly
+          docker push ${IMAGE}:fly
         env:
           IMAGE: ghcr.io/${{ github.repository }}
 
