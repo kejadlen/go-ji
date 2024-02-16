@@ -13,8 +13,10 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
+from go_ji import create_app  # noqa: E402
 from go_ji.db import Base  # noqa: E402
 
+config.set_main_option("sqlalchemy.url", create_app().config["DB_URL"])
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
