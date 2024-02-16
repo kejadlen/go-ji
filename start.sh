@@ -1,6 +1,7 @@
 #!/bin/sh
 
-/app/tailscaled --state=/var/lib/tailscale/tailscaled.state --socket=/var/run/tailscale/tailscaled.sock &
+mkdir -p /data/tailscale
+/app/tailscaled --state=/data/tailscale/tailscaled.state --socket=/var/run/tailscale/tailscaled.sock &
 /app/tailscale up --authkey=${TAILSCALE_AUTHKEY} --hostname=go
 
 # trap '/app/tailscale logout' INT
