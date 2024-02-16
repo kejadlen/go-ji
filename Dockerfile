@@ -17,8 +17,8 @@ COPY --from=docker.io/tailscale/tailscale:stable /usr/local/bin/tailscaled /app/
 COPY --from=docker.io/tailscale/tailscale:stable /usr/local/bin/tailscale /app/tailscale
 RUN mkdir -p /var/run/tailscale /var/cache/tailscale /var/lib/tailscale
 
-ENV HOME /home/nonroot
-ENV GO_JI_DB_URL sqlite:////home/nonroot/go-ji.db
+ENV HOME /data
+ENV GO_JI_DB_URL sqlite:////data/go-ji.db
 
 # Run on container startup.
 CMD ["/app/start.sh"]
