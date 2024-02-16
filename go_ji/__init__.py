@@ -16,24 +16,25 @@ config = Config("")
 config["DB_URL"] = "sqlite:///go-ji.db"
 config.from_prefixed_env("GO_JI")
 
-sentry_sdk.init(
-    dsn=config["SENTRY_DSN"],
-    environment=config["SENTRY_ENVIRONMENT"],
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    traces_sample_rate=1.0,
-    # Set profiles_sample_rate to 1.0 to profile 100%
-    # of sampled transactions.
-    # We recommend adjusting this value in production.
-    profiles_sample_rate=1.0,
-)
-
 
 def create_app(config_override: dict[str, Any] = {}) -> Flask:
     app = Flask(__name__, instance_relative_config=True)
 
     app.config.from_mapping(config)
     app.config.from_mapping(config_override)
+
+    if "TESTING" not in app.config:
+        sentry_sdk.init(
+            dsn=app.config["SENTRY_DSN"],
+            environment=app.config["SENTRY_ENVIRONMENT"],
+            # Set traces_sample_rate to 1.0 to capture 100%
+            # of transactions for performance monitoring.
+            traces_sample_rate=1.0,
+            # Set profiles_sample_rate to 1.0 to profile 100%
+            # of sampled transactions.
+            # We recommend adjusting this value in production.
+            profiles_sample_rate=1.0,
+        )
 
     # set up db
     db_session = create_db_session(app.config["DB_URL"])
