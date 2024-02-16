@@ -14,6 +14,16 @@ jobs:
     concurrency: deploy-group
     steps:
       - uses: actions/checkout@v4
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          docker tag ${{ github.repository }}:$(git rev-parse --short HEAD) ${{ github.repository }}:fly
+          docker push ${{ github.repository }}
+
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
         env:
