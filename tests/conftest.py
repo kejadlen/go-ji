@@ -3,8 +3,10 @@ import os
 import tempfile
 
 import pytest
+from sqlalchemy import create_engine
 
 from go_ji import create_app
+from go_ji.db import Base
 from go_ji.db import create_session as create_db_session
 
 
@@ -30,6 +32,9 @@ def app(db_url):
             "DB_URL": db_url,
         }
     )
+
+    engine = create_engine(db_url)
+    Base.metadata.create_all(bind=engine)
 
     yield app
 
