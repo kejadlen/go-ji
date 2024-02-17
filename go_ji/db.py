@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import ForeignKey, Session, Text, create_engine
+from sqlalchemy import ForeignKey, Text, create_engine
 from sqlalchemy.orm import (
     Mapped,
     declarative_base,
@@ -15,7 +15,7 @@ from sqlalchemy.sql import func
 Base = declarative_base()
 
 
-def create_session(url: str, debug: bool = False) -> Session:
+def create_session(url: str, debug: bool = False):  # noqa: ANN201
     engine = create_engine(url, echo=debug)
     db_session = scoped_session(
         sessionmaker(autocommit=False, autoflush=False, bind=engine)
