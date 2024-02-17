@@ -60,7 +60,7 @@ packaging==23.2
     #   gunicorn
     #   pytest
     #   ruff-lsp
-pip-tools==7.3.0
+pip-tools==7.4.0
     # via go-ji (pyproject.toml)
 pluggy==1.4.0
     # via pytest
