@@ -2,7 +2,7 @@
 # https://github.com/docker/awesome-compose/blob/master/flask/app/Dockerfile
 
 FROM python:3.12-alpine
-RUN apk update && apk add ca-certificates iptables ip6tables && rm -rf /var/cache/apk/*
+RUN apk update && apk add ca-certificates iptables ip6tables supervisor && rm -rf /var/cache/apk/*
 
 WORKDIR /app
 
@@ -20,4 +20,4 @@ RUN mkdir -p /var/run/tailscale /var/cache/tailscale /var/lib/tailscale
 ENV GO_JI_DB_URL sqlite:////data/go-ji.db
 
 # Run on container startup.
-CMD ["/app/docker/start.sh"]
+CMD supervisord -c /app/docker/supervisor.conf

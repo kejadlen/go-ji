@@ -23,7 +23,7 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
     app.config.from_mapping(CONFIG)
     app.config.from_mapping(config_override)
 
-    if "TESTING" not in app.config:  # pragma: no cover
+    if not app.config.get("TESTING", False):  # pragma: no cover
         sentry_sdk.init(
             dsn=app.config["SENTRY_DSN"],
             environment=app.config["SENTRY_ENVIRONMENT"],

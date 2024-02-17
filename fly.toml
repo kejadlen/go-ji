@@ -6,6 +6,7 @@ primary_region = "sea"
 
 [env]
   GO_JI_SENTRY_ENVIRONMENT = "production"
+  TAILSCALE_HOSTNAME = "go"
 
 [http_service]
   internal_port = 8000

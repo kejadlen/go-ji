@@ -16,8 +16,12 @@ docker:
 		--cap-add=NET_ADMIN \
 		--device=/dev/net/tun \
 		--name=go_ji \
+		--publish 8000:8000 \
+		--rm \
+		-e=GO_JI_SENTRY_DSN=$$GO_JI_SENTRY_DSN \
 		-e=GO_JI_SENTRY_ENVIRONMENT=development \
 		-e=TAILSCALE_AUTHKEY=$$TAILSCALE_AUTHKEY \
+		-e=TAILSCALE_HOSTNAME=$$TAILSCALE_HOSTNAME \
 		go-ji
 
 .PHONY: upgrade-deps
