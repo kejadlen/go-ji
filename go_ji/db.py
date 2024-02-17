@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import List
 
 from sqlalchemy import ForeignKey, Text, create_engine
 from sqlalchemy.orm import (
@@ -48,7 +47,7 @@ class Short(Base):
     __tablename__ = "shorts"
     id: Mapped[int] = mapped_column(primary_key=True)
     slug: Mapped[str] = mapped_column(Text(), nullable=False, unique=True)
-    longs: Mapped[List["Long"]] = relationship(back_populates="short")
+    longs: Mapped[list["Long"]] = relationship(back_populates="short")
     clicks: Mapped[int] = mapped_column(default=0, nullable=False)
 
     created_at: Mapped[datetime] = mapped_column(nullable=False, default=func.now())
