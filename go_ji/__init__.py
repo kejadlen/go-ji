@@ -43,6 +43,7 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
     def require_user() -> None:
         # I think this is unnecessary, but it also doesn't hurt
         if "user" in g:
+            # Might need to set the sentry user here, we'll see?
             return
 
         if not (login := request.headers.get("Tailscale-User-Login")):
