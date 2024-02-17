@@ -3,8 +3,18 @@ from typing import Any
 
 import sentry_sdk
 import sqlalchemy
-from flask import Config, Flask, abort, g, redirect, render_template, request, url_for
+from flask import (
+    Config,
+    Flask,
+    abort,
+    g,
+    redirect,
+    render_template,
+    request,
+    url_for,
+)
 from sqlalchemy import select
+from werkzeug.wrappers.response import Response
 
 from go_ji.db import Long, Short, User
 from go_ji.db import create_session as create_db_session
@@ -64,15 +74,15 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
         )
 
     @app.teardown_appcontext
-    def shutdown_session(exception=None):
+    def shutdown_session(exception=None) -> None:  # noqa: ANN001
         db_session.remove()
 
     @app.route("/")
-    def index():
+    def index() -> str:
         return render_template("hello.html", name=g.user.login)
 
     @app.route("/links", methods=["POST"])
-    def create_link():
+    def create_link() -> Response:
         slug = request.form["slug"]
         url = request.form["url"]
 
@@ -93,7 +103,7 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
         return redirect(url_for("index"))
 
     @app.route("/<slug>")
-    def go(slug: str):
+    def go(slug: str) -> Response:
         long = db_session.scalars(
             select(Long)
             .join(Long.short)
@@ -112,7 +122,7 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
 
     # purely for testing Sentry
     @app.route("/die")
-    def die():
+    def die() -> str:
         1 / 0  # raises an error
         return "<p>Hello, World!</p>"  # pragma: no cover
 
