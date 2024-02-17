@@ -70,7 +70,7 @@ pyproject-hooks==1.0.0
     # via build
 pyright==1.1.350
     # via go-ji (pyproject.toml)
-pytest==8.0.0
+pytest==8.0.1
     # via go-ji (pyproject.toml)
 ruff==0.2.1
     # via
