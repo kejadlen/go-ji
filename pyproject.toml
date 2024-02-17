@@ -50,6 +50,7 @@ target-version = "py312"
         "UP",  # pyupgrade
         "ANN", # flake8-annotations
         "TCH", # flake8-type-checking
+        "RUF", # ruff
     ]
     ignore = [
         "E741", # allow ambiguous variable names
