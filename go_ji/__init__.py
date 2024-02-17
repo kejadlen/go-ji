@@ -58,6 +58,9 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
         db_session.commit()
 
         g.user = user
+        sentry_sdk.set_user(
+            {"id": user.login, "username": user.name, "email": user.login}
+        )
 
     @app.teardown_appcontext
     def shutdown_session(exception=None):
