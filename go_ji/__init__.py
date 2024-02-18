@@ -46,11 +46,15 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
             profiles_sample_rate=1.0,
         )
 
-    # set up db
+    # Should this go on `g`?
     db_session = create_db_session(app.config["DB_URL"])
 
     @app.before_request
     def require_user() -> None:
+        # Allow anonymous requests for the healthcheck
+        if request.path == "/up":
+            return
+
         # I think this is unnecessary, but it also doesn't hurt
         if "user" in g:
             # Might need to set the sentry user here, we'll see?
@@ -76,6 +80,10 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
     @app.teardown_appcontext
     def shutdown_session(exception=None) -> None:  # noqa: ANN001
         db_session.remove()
+
+    @app.route("/up")
+    def up() -> str:
+        return ""
 
     @app.route("/")
     def index() -> str:

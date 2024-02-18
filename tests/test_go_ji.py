@@ -5,6 +5,12 @@ from sqlalchemy import select
 from go_ji.db import Short, User
 
 
+def test_up(client):
+    response = client.get("/up")
+
+    assert response.status_code == 200
+
+
 class TestAuth:
     def test_authenticates(self, app):
         with app.test_request_context(
