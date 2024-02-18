@@ -16,7 +16,7 @@ jobs:
           pip install -r dev-requirements.txt
       - run: |
           ruff check --output-format=github .
-          ruff format --check --output-format=github .
+          ruff format --check .
       - run: alembic upgrade head && alembic check
       - run: |
           coverage run -m pytest
