@@ -59,11 +59,27 @@ class TestAuth:
             assert g.user.login == "foo@example"
 
 
-def test_index(authed, client):
-    with authed:
-        response = client.get("/")
+class TestIndex:
+    def test_index(self, authed, client):
+        with authed:
+            response = client.get("/")
 
-        assert response.status_code == 200
+            assert response.status_code == 200
+
+    def test_shows_top_links(self, authed, client):
+        with authed:
+            response = client.get("/")
+            assert b"<td>foo</td>" not in response.data
+
+            client.post("/links", data={"slug": "foo", "url": "https://example.com"})
+            response = client.get("/")
+            assert b"<td>foo</td>" in response.data
+            assert b"0" in response.data
+
+            client.get("/foo", data={"slug": "foo", "url": "https://example.com"})
+            response = client.get("/")
+            assert b"<td>foo</td>" in response.data
+            assert b"1" in response.data
 
 
 class TestCreateLink:
