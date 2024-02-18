@@ -18,7 +18,7 @@
       <tr><th>short</th><th>clicks</th></tr>
       {% for short in top_shorts %}
       <tr>
-        <td>{{ short.slug }}</td>
+        <td><a href="{{ url_for('go', slug=short.slug) }}">{{ short.slug }}</a></td>
         <td>{{ short.clicks }}</td>
       </tr>
       {% endfor %}

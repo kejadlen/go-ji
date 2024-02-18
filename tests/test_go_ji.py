@@ -69,16 +69,16 @@ class TestIndex:
     def test_shows_top_links(self, authed, client):
         with authed:
             response = client.get("/")
-            assert b"<td>foo</td>" not in response.data
+            assert b"foo</a>" not in response.data
 
             client.post("/links", data={"slug": "foo", "url": "https://example.com"})
             response = client.get("/")
-            assert b"<td>foo</td>" in response.data
+            assert b"foo</a>" in response.data
             assert b"0" in response.data
 
             client.get("/foo", data={"slug": "foo", "url": "https://example.com"})
             response = client.get("/")
-            assert b"<td>foo</td>" in response.data
+            assert b"foo</a>" in response.data
             assert b"1" in response.data
 
 
