@@ -79,7 +79,7 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
 
     @app.route("/")
     def index() -> str:
-        return render_template("hello.html", name=g.user.login)
+        return render_template("index.html", name=g.user.login)
 
     @app.route("/links", methods=["POST"])
     def create_link() -> Response:
