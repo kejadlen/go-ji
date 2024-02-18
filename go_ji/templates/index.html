@@ -14,5 +14,14 @@
       <input type="text" id="url" name="url" />
       <input type="submit" value="Create Link">
     </form>
+    <table>
+      <tr><th>short</th><th>clicks</th></tr>
+      {% for short in top_shorts %}
+      <tr>
+        <td>{{ short.slug }}</td>
+        <td>{{ short.clicks }}</td>
+      </tr>
+      {% endfor %}
+    </table>
   </body>
 </html>

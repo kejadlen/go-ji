@@ -79,7 +79,10 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
 
     @app.route("/")
     def index() -> str:
-        return render_template("index.html", name=g.user.login)
+        top_shorts = db_session.scalars(
+            select(Short).order_by(Short.clicks.desc()).limit(10)
+        ).all()
+        return render_template("index.html", name=g.user.login, top_shorts=top_shorts)
 
     @app.route("/links", methods=["POST"])
     def create_link() -> Response:
