@@ -130,6 +130,7 @@ class TestGo:
 
             assert response.status_code == 404
 
+
 def test_die(authed, client):
     with authed:
         with pytest.raises(ZeroDivisionError):

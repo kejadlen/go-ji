@@ -5,9 +5,16 @@ dev:
 	tailscale serve --bg 5000
 	fd ".*.(html|py)$$" | entr -r flask --app go_ji run --debug
 
+.PHONY: lint
+lint:
+	ruff check .
+	ruff format --check .
+	# alembic upgrade head && alembic check
+
 .PHONY: test
 test:
 	coverage run -m pytest
+	coverage report
 
 .PHONY: docker
 docker:
