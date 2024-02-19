@@ -24,6 +24,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     needs: [ci]
     permissions:
       contents: read
@@ -52,6 +53,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     needs: [build]
     environment: production
     concurrency:
