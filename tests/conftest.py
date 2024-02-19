@@ -30,6 +30,7 @@ def app(db_url):
         {
             "TESTING": True,
             "DB_URL": db_url,
+            "SENTRY": {},
         }
     )
 

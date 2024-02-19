@@ -35,7 +35,7 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
     app.config.from_mapping(CONFIG)
     app.config.from_mapping(config_override)
 
-    if sentry_config := app.config["SENTRY"]:
+    if sentry_config := app.config["SENTRY"]:  # pragma: no cover
         sentry_sdk.init(
             dsn=sentry_config["DSN"],
             environment=sentry_config["ENVIRONMENT"],
@@ -62,7 +62,7 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
             # Might need to set the sentry user here, we'll see?
             return
 
-        if app.config["DEBUG"]:
+        if app.config["DEBUG"]:  # pragma: no cover
             login = "user@example"
             name = "A User"
         else:
