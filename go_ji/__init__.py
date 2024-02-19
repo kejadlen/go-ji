@@ -24,6 +24,8 @@ VALID_SLUG = re.compile(r"^\w[-\w]*$", re.ASCII)
 
 CONFIG = Config("")
 CONFIG["DB_URL"] = "sqlite:///go-ji.db"
+CONFIG["TESTING"] = False
+CONFIG["SENTRY"] = {}
 CONFIG.from_prefixed_env("GO_JI")
 
 
@@ -33,10 +35,10 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
     app.config.from_mapping(CONFIG)
     app.config.from_mapping(config_override)
 
-    if not app.config.get("TESTING", False):  # pragma: no cover
+    if sentry_config := app.config["SENTRY"]:
         sentry_sdk.init(
-            dsn=app.config["SENTRY_DSN"],
-            environment=app.config["SENTRY_ENVIRONMENT"],
+            dsn=sentry_config["DSN"],
+            environment=sentry_config["ENVIRONMENT"],
             # Set traces_sample_rate to 1.0 to capture 100%
             # of transactions for performance monitoring.
             traces_sample_rate=1.0,
