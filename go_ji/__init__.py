@@ -62,14 +62,14 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
             # Might need to set the sentry user here, we'll see?
             return
 
-        if app.config["DEBUG"]:  # pragma: no cover
+        if login := request.headers.get("Tailscale-User-Login"):
+            name = request.headers["Tailscale-User-Name"]
+        elif app.config["DEBUG"]:  # pragma: no cover
+            # Allow anonymous usage in debug mode
             login = "user@example"
             name = "A User"
         else:
-            if not (login := request.headers.get("Tailscale-User-Login")):
-                abort(403)
-
-            name = request.headers["Tailscale-User-Name"]
+            abort(403)
 
         try:
             user = db_session.scalars(select(User).where(User.login == login)).one()

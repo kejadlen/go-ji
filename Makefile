@@ -2,7 +2,11 @@ all: requirements.txt dev-requirements.txt
 
 .PHONY: dev
 dev:
-	fd ".*.(html|py)$$" | entr -r flask --app go_ji run --debug
+	fd ".*.(html|py)$$" | entr -r flask --app go_ji run --debug --port 5001
+
+.PHONY: tailscale
+tailscale:
+	tailscale serve --bg 5001
 
 .PHONY: lint
 lint:
