@@ -23,5 +23,8 @@
       </tr>
       {% endfor %}
     </table>
+    {% if hot_reload %}
+      {% include "hot_reload.html" %}
+    {% endif %}
   </body>
 </html>

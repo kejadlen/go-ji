@@ -24,8 +24,9 @@ VALID_SLUG = re.compile(r"^\w[-\w]*$", re.ASCII)
 
 CONFIG = Config("")
 CONFIG["DB_URL"] = "sqlite:///go-ji.db"
-CONFIG["TESTING"] = False
 CONFIG["SENTRY"] = {}
+CONFIG["SOCK_SERVER_OPTIONS"] = {"ping_interval": 0.25}
+CONFIG["TESTING"] = False
 CONFIG.from_prefixed_env("GO_JI")
 
 
@@ -34,6 +35,12 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
 
     app.config.from_mapping(CONFIG)
     app.config.from_mapping(config_override)
+
+    sock = None
+    if app.config["DEBUG"]:  # pragma: no cover
+        from flask_sock import Sock
+
+        sock = Sock(app)
 
     if sentry_config := app.config["SENTRY"]:  # pragma: no cover
         sentry_sdk.init(
@@ -53,8 +60,8 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
 
     @app.before_request
     def require_user() -> None:
-        # Allow anonymous requests for the healthcheck
-        if request.path == "/up":
+        # Allow anonymous requests for the healthcheck and hot-reloading
+        if request.path in ["/up", "hot-reload"]:
             return
 
         # I think this is unnecessary, but it also doesn't hurt
@@ -97,7 +104,12 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
         top_shorts = db_session.scalars(
             select(Short).order_by(Short.clicks.desc()).limit(10)
         ).all()
-        return render_template("index.html", name=g.user.login, top_shorts=top_shorts)
+        return render_template(
+            "index.html",
+            name=g.user.login,
+            top_shorts=top_shorts,
+            hot_reload=bool(sock),
+        )
 
     @app.route("/links", methods=["POST"])
     def create_link() -> Response:
@@ -143,5 +155,14 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
     def die() -> str:
         1 / 0  # raises an error
         return "<p>Hello, World!</p>"  # pragma: no cover
+
+    # hot-reloading - hold the websocket open forever in debug mode and when it
+    # disconnects, then we know we need to reload
+    if sock:  # pragma: no cover
+
+        @sock.route("/hot-reload")
+        def hot_reload(ws) -> None:
+            while True:
+                pass
 
     return app

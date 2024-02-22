@@ -30,10 +30,15 @@ coverage==7.4.1
     # via go-ji (pyproject.toml)
 flask==3.0.2
     # via
+    #   flask-sock
     #   go-ji (pyproject.toml)
     #   sentry-sdk
+flask-sock==0.7.0
+    # via go-ji (pyproject.toml)
 gunicorn==21.2.0
     # via go-ji (pyproject.toml)
+h11==0.14.0
+    # via wsproto
 iniconfig==2.0.0
     # via pytest
 itsdangerous==2.1.2
@@ -82,6 +87,8 @@ ruff-lsp==0.0.52
     # via go-ji (pyproject.toml)
 sentry-sdk==1.40.4
     # via go-ji (pyproject.toml)
+simple-websocket==1.0.0
+    # via flask-sock
 sqlalchemy==2.0.27
     # via
     #   alembic
@@ -97,6 +104,8 @@ werkzeug==3.0.1
     # via flask
 wheel==0.42.0
     # via pip-tools
+wsproto==1.2.0
+    # via simple-websocket
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

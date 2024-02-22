@@ -1,0 +1,8 @@
+<script>
+  const socket = new WebSocket('ws://' + location.host + '/hot-reload');
+  const cb = ev => {
+    setTimeout(() => { window.location.reload(); }, 500);
+  };
+  socket.onerror = cb;
+  socket.onclose = cb;
+</script>
