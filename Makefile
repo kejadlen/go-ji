@@ -37,5 +37,5 @@ upgrade-deps:
 requirements.txt: pyproject.toml
 	pip-compile --output-file=requirements.txt pyproject.toml
 
-dev-requirements.txt: pyproject.toml
+dev-requirements.txt: pyproject.toml requirements.txt
 	pip-compile --extra=dev --output-file=dev-requirements.txt pyproject.toml
