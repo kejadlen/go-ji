@@ -1,5 +1,5 @@
 <script>
-  const socket = new WebSocket('ws://' + location.host + '/hot-reload');
+  const socket = new WebSocket('ws://' + location.host + '/warm-reload');
   const cb = ev => {
     setTimeout(() => { window.location.reload(); }, 500);
   };

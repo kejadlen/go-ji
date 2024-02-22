@@ -61,8 +61,8 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
 
     @app.before_request
     def require_user() -> None:
-        # Allow anonymous requests for the healthcheck and hot-reloading
-        if request.path in ["/up", "hot-reload"]:
+        # Allow anonymous requests for the healthcheck and warm-reloading
+        if request.path in ["/up", "warm-reload"]:
             return
 
         # I think this is unnecessary, but it also doesn't hurt
@@ -107,9 +107,8 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
         ).all()
         return render_template(
             "index.html",
-            name=g.user.login,
             top_shorts=top_shorts,
-            hot_reload=bool(sock),
+            warm_reload=bool(sock),
         )
 
     @app.route("/links", methods=["POST"])
@@ -157,12 +156,12 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
         1 / 0  # raises an error
         return "<p>Hello, World!</p>"  # pragma: no cover
 
-    # hot-reloading - hold the websocket open forever in debug mode and when it
+    # warm-reloading - hold the websocket open forever in debug mode and when it
     # disconnects, then we know we need to reload
     if sock:  # pragma: no cover
 
-        @sock.route("/hot-reload")
-        def hot_reload(ws: WsServer) -> None:
+        @sock.route("/warm-reload")
+        def warm_reload(ws: WsServer) -> None:
             while True:
                 pass
 
