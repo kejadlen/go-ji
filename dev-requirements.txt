@@ -75,7 +75,7 @@ pyproject-hooks==1.0.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.350
+pyright==1.1.351
     # via go-ji (pyproject.toml)
 pytest==8.0.1
     # via go-ji (pyproject.toml)
