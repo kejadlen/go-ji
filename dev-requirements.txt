@@ -85,7 +85,7 @@ ruff==0.2.2
     #   ruff-lsp
 ruff-lsp==0.0.52
     # via go-ji (pyproject.toml)
-sentry-sdk==1.40.4
+sentry-sdk==1.40.5
     # via go-ji (pyproject.toml)
 simple-websocket==1.0.0
     # via flask-sock
