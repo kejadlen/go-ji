@@ -13,7 +13,6 @@ from flask import (
     request,
     url_for,
 )
-from flask_sock import Server as WsServer
 from sqlalchemy import select
 from werkzeug.wrappers.response import Response
 
@@ -161,7 +160,7 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
     if sock:  # pragma: no cover
 
         @sock.route("/warm-reload")
-        def warm_reload(ws: WsServer) -> None:
+        def warm_reload(ws) -> None:  # noqa: ANN001
             while True:
                 pass
 
