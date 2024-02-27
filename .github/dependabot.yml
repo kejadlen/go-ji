@@ -1,6 +1,10 @@
 version: 2
 updates:
   - package-ecosystem: pip
-    directory: "/"
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: weekly
+    groups:
+      patches:
+        update-types:
+          - patch
