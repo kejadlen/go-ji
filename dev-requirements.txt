@@ -75,9 +75,9 @@ pyproject-hooks==1.0.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.350
+pyright==1.1.351
     # via go-ji (pyproject.toml)
-pytest==8.0.1
+pytest==8.0.2
     # via go-ji (pyproject.toml)
 ruff==0.2.2
     # via
@@ -85,7 +85,7 @@ ruff==0.2.2
     #   ruff-lsp
 ruff-lsp==0.0.52
     # via go-ji (pyproject.toml)
-sentry-sdk==1.40.4
+sentry-sdk==1.40.6
     # via go-ji (pyproject.toml)
 simple-websocket==1.0.0
     # via flask-sock
