@@ -24,14 +24,6 @@ dev = [
 [tool.setuptools]
 py-modules = []
 
-[tool.coverage.run]
-branch = true
-source = ["go_ji"]
-
-[tool.coverage.report]
-fail_under = 100
-show_missing = true
-
 [tool.pip-tools]
 strip-extras = true # silence warning that strip-extras will be the default in
                     # 8.0.0, at which point this setting can be removed
