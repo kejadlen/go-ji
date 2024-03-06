@@ -14,7 +14,7 @@ blinker==1.7.0
     # via
     #   flask
     #   sentry-sdk
-build==1.0.3
+build==1.1.1
     # via pip-tools
 cattrs==23.2.3
     # via
