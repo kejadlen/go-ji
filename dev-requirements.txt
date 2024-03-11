@@ -65,7 +65,7 @@ packaging==23.2
     #   gunicorn
     #   pytest
     #   ruff-lsp
-pip-tools==7.4.0
+pip-tools==7.4.1
     # via go-ji (pyproject.toml)
 pluggy==1.4.0
     # via pytest
@@ -75,11 +75,11 @@ pyproject-hooks==1.0.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.352
+pyright==1.1.353
     # via go-ji (pyproject.toml)
 pytest==8.0.2
     # via go-ji (pyproject.toml)
-ruff==0.3.0
+ruff==0.3.2
     # via
     #   go-ji (pyproject.toml)
     #   ruff-lsp
@@ -89,7 +89,7 @@ sentry-sdk==1.40.6
     # via go-ji (pyproject.toml)
 simple-websocket==1.0.0
     # via flask-sock
-sqlalchemy==2.0.27
+sqlalchemy==2.0.28
     # via
     #   alembic
     #   go-ji (pyproject.toml)
