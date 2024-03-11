@@ -59,7 +59,7 @@ markupsafe==2.1.5
     #   werkzeug
 nodeenv==1.8.0
     # via pyright
-packaging==23.2
+packaging==24.0
     # via
     #   build
     #   gunicorn
