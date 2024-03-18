@@ -26,7 +26,7 @@ click==8.1.7
     # via
     #   flask
     #   pip-tools
-coverage==7.4.3
+coverage==7.4.4
     # via go-ji (pyproject.toml)
 flask==3.0.2
     # via
@@ -75,11 +75,11 @@ pyproject-hooks==1.0.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.353
+pyright==1.1.354
     # via go-ji (pyproject.toml)
 pytest==8.1.1
     # via go-ji (pyproject.toml)
-ruff==0.3.2
+ruff==0.3.3
     # via
     #   go-ji (pyproject.toml)
     #   ruff-lsp
