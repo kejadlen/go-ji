@@ -102,7 +102,7 @@ urllib3==2.2.1
     # via sentry-sdk
 werkzeug==3.0.1
     # via flask
-wheel==0.42.0
+wheel==0.43.0
     # via pip-tools
 wsproto==1.2.0
     # via simple-websocket
