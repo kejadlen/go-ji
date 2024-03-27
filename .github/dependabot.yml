@@ -5,6 +5,8 @@ updates:
     schedule:
       interval: weekly
     groups:
-      patches:
+      rollup:
         update-types:
+          - major
+          - minor
           - patch
