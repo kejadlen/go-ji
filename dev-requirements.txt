@@ -35,7 +35,7 @@ flask==3.0.3
     #   sentry-sdk
 flask-sock==0.7.0
     # via go-ji (pyproject.toml)
-gunicorn==21.2.0
+gunicorn==22.0.0
     # via go-ji (pyproject.toml)
 h11==0.14.0
     # via wsproto

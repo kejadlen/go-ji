@@ -18,7 +18,7 @@ flask==3.0.3
     # via
     #   go-ji (pyproject.toml)
     #   sentry-sdk
-gunicorn==21.2.0
+gunicorn==22.0.0
     # via go-ji (pyproject.toml)
 itsdangerous==2.1.2
     # via flask
