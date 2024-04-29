@@ -6,7 +6,7 @@
 #
 alembic==1.13.1
     # via go-ji (pyproject.toml)
-blinker==1.7.0
+blinker==1.8.1
     # via
     #   flask
     #   sentry-sdk
@@ -34,7 +34,7 @@ markupsafe==2.1.5
     #   werkzeug
 packaging==24.0
     # via gunicorn
-sentry-sdk==1.45.0
+sentry-sdk==2.0.1
     # via go-ji (pyproject.toml)
 sqlalchemy==2.0.29
     # via

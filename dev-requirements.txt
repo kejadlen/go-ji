@@ -10,7 +10,7 @@ attrs==23.2.0
     # via
     #   cattrs
     #   lsprotocol
-blinker==1.7.0
+blinker==1.8.1
     # via
     #   flask
     #   sentry-sdk
@@ -26,7 +26,7 @@ click==8.1.7
     # via
     #   flask
     #   pip-tools
-coverage==7.4.4
+coverage==7.5.0
     # via go-ji (pyproject.toml)
 flask==3.0.3
     # via
@@ -71,21 +71,21 @@ pluggy==1.5.0
     # via pytest
 pygls==1.3.1
     # via ruff-lsp
-pyproject-hooks==1.0.0
+pyproject-hooks==1.1.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.359
+pyright==1.1.360
     # via go-ji (pyproject.toml)
-pytest==8.1.1
+pytest==8.2.0
     # via go-ji (pyproject.toml)
-ruff==0.4.1
+ruff==0.4.2
     # via
     #   go-ji (pyproject.toml)
     #   ruff-lsp
 ruff-lsp==0.0.53
     # via go-ji (pyproject.toml)
-sentry-sdk==1.45.0
+sentry-sdk==2.0.1
     # via go-ji (pyproject.toml)
 simple-websocket==1.0.0
     # via flask-sock
