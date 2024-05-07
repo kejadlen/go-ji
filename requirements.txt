@@ -22,7 +22,7 @@ gunicorn==22.0.0
     # via go-ji (pyproject.toml)
 itsdangerous==2.2.0
     # via flask
-jinja2==3.1.3
+jinja2==3.1.4
     # via flask
 mako==1.3.3
     # via alembic
@@ -36,7 +36,7 @@ packaging==24.0
     # via gunicorn
 sentry-sdk==2.0.1
     # via go-ji (pyproject.toml)
-sqlalchemy==2.0.29
+sqlalchemy==2.0.30
     # via
     #   alembic
     #   go-ji (pyproject.toml)
@@ -46,5 +46,5 @@ typing-extensions==4.11.0
     #   sqlalchemy
 urllib3==2.2.1
     # via sentry-sdk
-werkzeug==3.0.2
+werkzeug==3.0.3
     # via flask
