@@ -79,7 +79,7 @@ pyright==1.1.362
     # via go-ji (pyproject.toml)
 pytest==8.2.0
     # via go-ji (pyproject.toml)
-ruff==0.4.3
+ruff==0.4.4
     # via
     #   go-ji (pyproject.toml)
     #   ruff-lsp
