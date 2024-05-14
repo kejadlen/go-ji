@@ -49,7 +49,7 @@ lsprotocol==2023.0.1
     # via
     #   pygls
     #   ruff-lsp
-mako==1.3.3
+mako==1.3.5
     # via alembic
 markupsafe==2.1.5
     # via
