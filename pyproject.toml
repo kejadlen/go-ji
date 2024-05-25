@@ -18,7 +18,6 @@ dev = [
     "pyright",
     "pytest",
     "ruff",
-    "ruff-lsp",
 ]
 
 [tool.setuptools]
