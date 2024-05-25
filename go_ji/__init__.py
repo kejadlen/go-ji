@@ -152,7 +152,8 @@ def create_app(config_override: dict[str, Any] = {}) -> Flask:
     # purely for testing Sentry
     @app.route("/die")
     def die() -> str:
-        1 / 0  # raises an error
+        # raises an error
+        1 / 0  # type: ignore[reportUnusedExpression]
         return "<p>Hello, World!</p>"  # pragma: no cover
 
     # warm-reloading - hold the websocket open forever in debug mode and when it
