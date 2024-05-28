@@ -18,7 +18,7 @@ click==8.1.7
     # via
     #   flask
     #   pip-tools
-coverage==7.5.2
+coverage==7.5.3
     # via go-ji (pyproject.toml)
 flask==3.0.3
     # via
