@@ -74,7 +74,7 @@ sqlalchemy==2.0.30
     # via
     #   alembic
     #   go-ji (pyproject.toml)
-typing-extensions==4.12.0
+typing-extensions==4.12.1
     # via
     #   alembic
     #   sqlalchemy
