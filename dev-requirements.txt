@@ -64,7 +64,7 @@ pyright==1.1.365
     # via go-ji (pyproject.toml)
 pytest==8.2.2
     # via go-ji (pyproject.toml)
-ruff==0.4.7
+ruff==0.4.8
     # via go-ji (pyproject.toml)
 sentry-sdk==2.4.0
     # via go-ji (pyproject.toml)
