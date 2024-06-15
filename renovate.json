@@ -3,11 +3,5 @@
   "extends": [
     "config:best-practices"
   ],
-  "packageRules": [
-    {
-      "matchDepTypes": ["devDependencies"],
-      "groupName": "development dependencies",
-      "automerge": true
-    }
-  ]
+  "automerge": true
 }
