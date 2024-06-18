@@ -70,7 +70,7 @@ sentry-sdk==2.5.1
     # via go-ji (pyproject.toml)
 simple-websocket==1.0.0
     # via flask-sock
-sqlalchemy==2.0.30
+sqlalchemy==2.0.31
     # via
     #   alembic
     #   go-ji (pyproject.toml)
