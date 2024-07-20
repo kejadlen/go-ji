@@ -62,7 +62,7 @@ pyproject-hooks==1.1.0
     #   pip-tools
 pyright==1.1.372
     # via go-ji (pyproject.toml)
-pytest==8.2.2
+pytest==8.3.1
     # via go-ji (pyproject.toml)
 ruff==0.5.4
     # via go-ji (pyproject.toml)
