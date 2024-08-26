@@ -46,5 +46,5 @@ typing-extensions==4.12.2
     #   sqlalchemy
 urllib3==2.2.2
     # via sentry-sdk
-werkzeug==3.0.3
+werkzeug==3.0.4
     # via flask
