@@ -36,7 +36,7 @@ packaging==24.1
     # via gunicorn
 sentry-sdk==2.13.0
     # via go-ji (pyproject.toml)
-sqlalchemy==2.0.32
+sqlalchemy==2.0.34
     # via
     #   alembic
     #   go-ji (pyproject.toml)
