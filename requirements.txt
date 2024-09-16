@@ -34,7 +34,7 @@ markupsafe==2.1.5
     #   werkzeug
 packaging==24.1
     # via gunicorn
-sentry-sdk==2.13.0
+sentry-sdk==2.14.0
     # via go-ji (pyproject.toml)
 sqlalchemy==2.0.34
     # via
@@ -44,7 +44,7 @@ typing-extensions==4.12.2
     # via
     #   alembic
     #   sqlalchemy
-urllib3==2.2.2
+urllib3==2.2.3
     # via sentry-sdk
 werkzeug==3.0.4
     # via flask
