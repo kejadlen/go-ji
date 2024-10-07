@@ -10,7 +10,7 @@ blinker==1.8.2
     # via
     #   flask
     #   sentry-sdk
-build==1.2.2
+build==1.2.2.post1
     # via pip-tools
 certifi==2024.8.30
     # via sentry-sdk
@@ -60,13 +60,13 @@ pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.382.post1
+pyright==1.1.383
     # via go-ji (pyproject.toml)
 pytest==8.3.3
     # via go-ji (pyproject.toml)
-ruff==0.6.8
+ruff==0.6.9
     # via go-ji (pyproject.toml)
-sentry-sdk==2.14.0
+sentry-sdk==2.15.0
     # via go-ji (pyproject.toml)
 simple-websocket==1.0.0
     # via flask-sock
