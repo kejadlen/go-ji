@@ -80,7 +80,7 @@ typing-extensions==4.12.2
     #   sqlalchemy
 urllib3==2.2.3
     # via sentry-sdk
-werkzeug==3.0.4
+werkzeug==3.0.6
     # via flask
 wheel==0.44.0
     # via pip-tools
