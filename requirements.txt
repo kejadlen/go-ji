@@ -4,9 +4,9 @@
 #
 #    pip-compile --output-file=requirements.txt --strip-extras pyproject.toml
 #
-alembic==1.13.3
+alembic==1.14.0
     # via go-ji (pyproject.toml)
-blinker==1.8.2
+blinker==1.9.0
     # via
     #   flask
     #   sentry-sdk
@@ -32,9 +32,9 @@ markupsafe==3.0.2
     #   mako
     #   sentry-sdk
     #   werkzeug
-packaging==24.1
+packaging==24.2
     # via gunicorn
-sentry-sdk==2.17.0
+sentry-sdk==2.18.0
     # via go-ji (pyproject.toml)
 sqlalchemy==2.0.36
     # via
@@ -46,5 +46,5 @@ typing-extensions==4.12.2
     #   sqlalchemy
 urllib3==2.2.3
     # via sentry-sdk
-werkzeug==3.1.1
+werkzeug==3.1.3
     # via flask
