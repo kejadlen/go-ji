@@ -18,9 +18,9 @@ click==8.1.7
     # via
     #   flask
     #   pip-tools
-coverage==7.6.4
+coverage==7.6.7
     # via go-ji (pyproject.toml)
-flask==3.0.3
+flask==3.1.0
     # via
     #   flask-sock
     #   go-ji (pyproject.toml)
@@ -60,11 +60,11 @@ pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.388
+pyright==1.1.389
     # via go-ji (pyproject.toml)
 pytest==8.3.3
     # via go-ji (pyproject.toml)
-ruff==0.7.3
+ruff==0.7.4
     # via go-ji (pyproject.toml)
 sentry-sdk==2.18.0
     # via go-ji (pyproject.toml)
