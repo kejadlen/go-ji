@@ -14,7 +14,7 @@ certifi==2024.8.30
     # via sentry-sdk
 click==8.1.7
     # via flask
-flask==3.0.3
+flask==3.1.0
     # via
     #   go-ji (pyproject.toml)
     #   sentry-sdk
