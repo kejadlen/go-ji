@@ -62,9 +62,9 @@ pyproject-hooks==1.2.0
     #   pip-tools
 pyright==1.1.389
     # via go-ji (pyproject.toml)
-pytest==8.3.3
+pytest==8.3.4
     # via go-ji (pyproject.toml)
-ruff==0.8.0
+ruff==0.8.1
     # via go-ji (pyproject.toml)
 sentry-sdk==2.19.0
     # via go-ji (pyproject.toml)
