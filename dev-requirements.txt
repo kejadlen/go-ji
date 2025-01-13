@@ -64,13 +64,13 @@ pyright==1.1.391
     # via go-ji (pyproject.toml)
 pytest==8.3.4
     # via go-ji (pyproject.toml)
-ruff==0.8.6
+ruff==0.9.1
     # via go-ji (pyproject.toml)
 sentry-sdk==2.19.2
     # via go-ji (pyproject.toml)
 simple-websocket==1.1.0
     # via flask-sock
-sqlalchemy==2.0.36
+sqlalchemy==2.0.37
     # via
     #   alembic
     #   go-ji (pyproject.toml)

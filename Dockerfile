@@ -1,7 +1,7 @@
 # https://tailscale.com/kb/1132/flydotio
 # https://github.com/docker/awesome-compose/blob/master/flask/app/Dockerfile
 
-FROM python:3.13-alpine@sha256:657dbdb20479a6523b46c06114c8fec7db448232f956a429d3cc0606d30c1b59
+FROM python:3.13-alpine@sha256:b6f01a01e34091438a29b6dda4664199e34731fb2581ebb6fe255a2ebf441099
 RUN apk update && apk add ca-certificates iptables ip6tables supervisor && rm -rf /var/cache/apk/*
 
 WORKDIR /app
