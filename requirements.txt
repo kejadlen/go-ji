@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=requirements.txt --strip-extras pyproject.toml
 #
-alembic==1.14.0
+alembic==1.14.1
     # via go-ji (pyproject.toml)
 blinker==1.9.0
     # via
@@ -34,7 +34,7 @@ markupsafe==3.0.2
     #   werkzeug
 packaging==24.2
     # via gunicorn
-sentry-sdk==2.19.2
+sentry-sdk==2.20.0
     # via go-ji (pyproject.toml)
 sqlalchemy==2.0.37
     # via
