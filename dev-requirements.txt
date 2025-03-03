@@ -60,11 +60,11 @@ pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.394
+pyright==1.1.396
     # via go-ji (pyproject.toml)
-pytest==8.3.4
+pytest==8.3.5
     # via go-ji (pyproject.toml)
-ruff==0.9.7
+ruff==0.9.9
     # via go-ji (pyproject.toml)
 sentry-sdk==2.22.0
     # via go-ji (pyproject.toml)
