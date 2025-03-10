@@ -13,8 +13,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 COPY . /app
 
 # Copy Tailscale binaries from the tailscale image on Docker Hub.
-COPY --from=docker.io/tailscale/tailscale:stable@sha256:27b6a3dc30d89e94113b0d481dae05f08934cf80bdce860041727a2a60959921 /usr/local/bin/tailscaled /app/tailscaled
-COPY --from=docker.io/tailscale/tailscale:stable@sha256:27b6a3dc30d89e94113b0d481dae05f08934cf80bdce860041727a2a60959921 /usr/local/bin/tailscale /app/tailscale
+COPY --from=docker.io/tailscale/tailscale:stable@sha256:af6026ed3e5892c5d4966962618a09685198111507df16803b2aec7066046582 /usr/local/bin/tailscaled /app/tailscaled
+COPY --from=docker.io/tailscale/tailscale:stable@sha256:af6026ed3e5892c5d4966962618a09685198111507df16803b2aec7066046582 /usr/local/bin/tailscale /app/tailscale
 RUN mkdir -p /var/run/tailscale /var/cache/tailscale /var/lib/tailscale
 
 ENV GO_JI_DB_URL sqlite:////data/go-ji.db

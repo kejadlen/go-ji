@@ -4,7 +4,7 @@
 #
 #    pip-compile --extra=dev --output-file=dev-requirements.txt --strip-extras pyproject.toml
 #
-alembic==1.14.1
+alembic==1.15.1
     # via go-ji (pyproject.toml)
 blinker==1.9.0
     # via
@@ -64,7 +64,7 @@ pyright==1.1.396
     # via go-ji (pyproject.toml)
 pytest==8.3.5
     # via go-ji (pyproject.toml)
-ruff==0.9.9
+ruff==0.9.10
     # via go-ji (pyproject.toml)
 sentry-sdk==2.22.0
     # via go-ji (pyproject.toml)
