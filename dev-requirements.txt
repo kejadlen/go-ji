@@ -18,7 +18,7 @@ click==8.1.8
     # via
     #   flask
     #   pip-tools
-coverage==7.7.0
+coverage==7.7.1
     # via go-ji (pyproject.toml)
 flask==3.1.0
     # via
@@ -31,7 +31,7 @@ gunicorn==23.0.0
     # via go-ji (pyproject.toml)
 h11==0.14.0
     # via wsproto
-iniconfig==2.0.0
+iniconfig==2.1.0
     # via pytest
 itsdangerous==2.2.0
     # via flask
@@ -60,13 +60,13 @@ pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.396
+pyright==1.1.397
     # via go-ji (pyproject.toml)
 pytest==8.3.5
     # via go-ji (pyproject.toml)
-ruff==0.11.0
+ruff==0.11.2
     # via go-ji (pyproject.toml)
-sentry-sdk==2.22.0
+sentry-sdk==2.24.0
     # via go-ji (pyproject.toml)
 simple-websocket==1.1.0
     # via flask-sock
