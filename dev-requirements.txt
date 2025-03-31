@@ -4,7 +4,7 @@
 #
 #    pip-compile --extra=dev --output-file=dev-requirements.txt --strip-extras pyproject.toml
 #
-alembic==1.15.1
+alembic==1.15.2
     # via go-ji (pyproject.toml)
 blinker==1.9.0
     # via
@@ -18,7 +18,7 @@ click==8.1.8
     # via
     #   flask
     #   pip-tools
-coverage==7.7.1
+coverage==7.8.0
     # via go-ji (pyproject.toml)
 flask==3.1.0
     # via
@@ -60,21 +60,21 @@ pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
-pyright==1.1.397
+pyright==1.1.398
     # via go-ji (pyproject.toml)
 pytest==8.3.5
     # via go-ji (pyproject.toml)
 ruff==0.11.2
     # via go-ji (pyproject.toml)
-sentry-sdk==2.24.0
+sentry-sdk==2.24.1
     # via go-ji (pyproject.toml)
 simple-websocket==1.1.0
     # via flask-sock
-sqlalchemy==2.0.39
+sqlalchemy==2.0.40
     # via
     #   alembic
     #   go-ji (pyproject.toml)
-typing-extensions==4.12.2
+typing-extensions==4.13.0
     # via
     #   alembic
     #   sqlalchemy
