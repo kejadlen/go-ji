@@ -34,13 +34,13 @@ markupsafe==3.0.2
     #   werkzeug
 packaging==24.2
     # via gunicorn
-sentry-sdk==2.24.1
+sentry-sdk==2.25.1
     # via go-ji (pyproject.toml)
 sqlalchemy==2.0.40
     # via
     #   alembic
     #   go-ji (pyproject.toml)
-typing-extensions==4.13.0
+typing-extensions==4.13.1
     # via
     #   alembic
     #   sqlalchemy
