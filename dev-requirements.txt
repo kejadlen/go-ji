@@ -47,7 +47,7 @@ markupsafe==3.0.2
     #   werkzeug
 nodeenv==1.9.1
     # via pyright
-packaging==24.2
+packaging==25.0
     # via
     #   build
     #   gunicorn
@@ -64,9 +64,9 @@ pyright==1.1.399
     # via go-ji (pyproject.toml)
 pytest==8.3.5
     # via go-ji (pyproject.toml)
-ruff==0.11.5
+ruff==0.11.6
     # via go-ji (pyproject.toml)
-sentry-sdk==2.25.1
+sentry-sdk==2.26.1
     # via go-ji (pyproject.toml)
 simple-websocket==1.1.0
     # via flask-sock
