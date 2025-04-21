@@ -32,9 +32,9 @@ markupsafe==3.0.2
     #   mako
     #   sentry-sdk
     #   werkzeug
-packaging==24.2
+packaging==25.0
     # via gunicorn
-sentry-sdk==2.25.1
+sentry-sdk==2.26.1
     # via go-ji (pyproject.toml)
 sqlalchemy==2.0.40
     # via
