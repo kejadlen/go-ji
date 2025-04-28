@@ -10,7 +10,7 @@ blinker==1.9.0
     # via
     #   flask
     #   sentry-sdk
-certifi==2025.1.31
+certifi==2025.4.26
     # via sentry-sdk
 click==8.1.8
     # via flask
@@ -34,7 +34,7 @@ markupsafe==3.0.2
     #   werkzeug
 packaging==25.0
     # via gunicorn
-sentry-sdk==2.26.1
+sentry-sdk==2.27.0
     # via go-ji (pyproject.toml)
 sqlalchemy==2.0.40
     # via
