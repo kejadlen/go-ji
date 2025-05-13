@@ -20,7 +20,7 @@ click==8.2.0
     #   pip-tools
 coverage==7.8.0
     # via go-ji (pyproject.toml)
-flask==3.1.0
+flask==3.1.1
     # via
     #   flask-sock
     #   go-ji (pyproject.toml)
