@@ -6,9 +6,10 @@ RUN apk update && apk add ca-certificates iptables ip6tables supervisor && rm -r
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip3 install -r requirements.txt
+COPY uv.lock pyproject.toml .
+RUN --mount=type=cache,target=/root/.cache/uv \
+    pip3 install --no-deps uv==0.8.4 && \
+    uv sync --frozen --no-dev
 
 COPY . /app
 

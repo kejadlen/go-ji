@@ -1,4 +1,4 @@
-all: requirements.txt dev-requirements.txt
+all: uv.lock
 
 .PHONY: dev
 dev:
@@ -33,10 +33,7 @@ docker:
 
 .PHONY: upgrade-deps
 upgrade-deps:
-	pip-compile --upgrade
+	uv lock --upgrade
 
-requirements.txt: pyproject.toml
-	pip-compile --output-file=requirements.txt pyproject.toml
-
-dev-requirements.txt: pyproject.toml requirements.txt
-	pip-compile --extra=dev --output-file=dev-requirements.txt pyproject.toml
+uv.lock: pyproject.toml
+	uv lock
