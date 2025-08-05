@@ -2,7 +2,7 @@ import re
 from typing import Any
 
 import sentry_sdk
-import sqlalchemy
+import sqlalchemy.exc
 from flask import (
     Config,
     Flask,
